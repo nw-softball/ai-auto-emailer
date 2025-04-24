@@ -49,6 +49,7 @@ with open(config["CSV_FILE"]) as data_file:
         data_list.append(row)
 
 city_event = config["CITY_EVENT"]
+event_website = config["EMAIL_EVENT_WEBSITE"]
 template_email = config["EMAIL_TEMPLATE"]
 prospectus = config["EMAIL_PROSPECTUS_LINK"]
 date_of_event = config["EMAIL_DATE_OF_EVENT"]
@@ -76,7 +77,8 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
             email to help write out unique and engaging conversational emails:
             {template_email}. The date for the event is: {date_of_event}, and
             if you want to link to the prospectus it is located here:
-            {prospectus}. Write an email that convinces me, the reader, and the
+            {prospectus}. The event website is located at this url:
+            {event_website}. Write an email that convinces me and the
             recipient of this email to want to sponsor this event. The
             recipients name is {i['name']}. The email is from my name which is
             {your_name}, and my email address and {your_email}, my phone number

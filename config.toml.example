@@ -22,6 +22,7 @@ DevOpsDays Austin is in its thirteenth year, and we are one of the oldest DevOps
 In our survey of attendees last year, one piece of feedback we received was literally "Would have liked more vendors to interact with," and that was for a sold-out sponsorship area. Our community appreciates our sponsors and wants to interact with you. We would love to have you."""
 
 # Some options for the email, like images and prospectuses
+EMAIL_EVENT_WEBSITE="https://devopsdays.org/austin"
 EMAIL_PROSPECTUS_LINK="https://assets.devopsdays.org/events/2025/austin/devopsdays-austin-2025-sponsor-prospectus.pdf"
 EMAIL_DATE_OF_EVENT="May 1st, 2nd, 2025"
 EMAIL_SUBJECT="Exclusive Sponsorship Opportunity at DevOpsDays Austin 2025"
