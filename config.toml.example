@@ -1,0 +1,30 @@
+# Add your name and general info here.
+YOUR_NAME="Jenny Doe"
+YOUR_PHONE=15128675309
+YOUR_EMAIL="jenny@example.com"
+
+# Change this to your specific mail server
+SMTP_PORT=465
+SMTP_SENDER_EMAIL="austin@example.com"
+SMTP_SERVER="smtp.gmail.com"
+
+OLLAMA_AI_MODEL="granite3.2"
+
+CSV_FILE="names.csv"
+
+# This should be capitalized
+CITY_EVENT="Austin"
+
+# This is the email that you want to gain "inspiration" from.
+EMAIL_TEMPLATE="""
+DevOpsDays Austin is in its thirteenth year, and we are one of the oldest DevOpsDays in the United States and the world. We consistently are near or at capacity on tickets sold (~320-400, depending on our venue) and have 90% or greater of attendees check in. Attendees skew toward more experienced and range from senior engineer to director to CEO, and they represent companies from stealth startups to large enterprises with sectors like finance, healthcare, and as-a-service platforms.
+
+In our survey of attendees last year, one piece of feedback we received was literally "Would have liked more vendors to interact with," and that was for a sold-out sponsorship area. Our community appreciates our sponsors and wants to interact with you. We would love to have you."""
+
+# Some options for the email, like images and prospectuses
+EMAIL_PROSPECTUS_LINK="https://assets.devopsdays.org/events/2025/austin/devopsdays-austin-2025-sponsor-prospectus.pdf"
+EMAIL_DATE_OF_EVENT="May 1st, 2nd, 2025"
+EMAIL_SUBJECT="Exclusive Sponsorship Opportunity at DevOpsDays Austin 2025"
+EMAIL_LOGO_URL="https://devopsdays.org/events/2025-austin/logo.png"
+EMAIL_SPONSOR_URL="https://devopsdays.org/events/2025-austin/sponsor"
+
