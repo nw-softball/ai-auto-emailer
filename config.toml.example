@@ -5,15 +5,19 @@ YOUR_EMAIL="jenny@example.com"
 
 # Change this to your specific mail server
 SMTP_PORT=465
+# This is the login for the mail server
 SMTP_SENDER_EMAIL="austin@example.com"
+# This is the mail server you want to send from
 SMTP_SERVER="smtp.gmail.com"
 
+# This is the ai model you want to leverage with allama
 OLLAMA_AI_MODEL="granite3.2"
 
+# The CSV file
 CSV_FILE="names.csv"
 
 # This should be capitalized
-CITY_EVENT="Austin"
+CITY_EVENT="austin"
 
 # This is the email that you want to gain "inspiration" from.
 EMAIL_TEMPLATE="""

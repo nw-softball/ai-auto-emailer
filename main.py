@@ -91,6 +91,7 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
         message["Subject"] = config["EMAIL_SUBJECT"]
         message["From"] = sender_email
         message["To"] = receiver_email
+        message["Reply-To"] = f"{city_event}@devopsdays.org"
 
         raw_response =  response['message']['content']
         text_email = raw_response
