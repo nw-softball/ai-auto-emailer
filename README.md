@@ -2,41 +2,68 @@
 
 ## Scope
 
-This is an example helper email to send conference sponsorship emails to prospective sponsors for an event. This can be edited for
-your event easily with some changes around the HTML email and the "template email."
+This is an example helper email to send conference sponsorship emails to prospective sponsors for an event. This can be edited for your event easily with some changes around the HTML email and the "[template email](./templates/email.html.j2)."
 
 This is designed to help community driven events to ask for money from companies, this will **save hours of work** for community volunteers.
+
+NOTE: It will generate a unique email for each email address so that it is a "normal" email. That does mean that it will take awhile (and use local resources) depending on how many email addresses you have.
+
+For reference: 50 messages took 19m:56s on Mac M1 Max with 32GB RAM.
 
 ## Configuration and setup
 
 ### PreSteps
 
-0. Have [ollama][ollama] and python installed.
+Have [ollama][ollama] and python installed.
+
+#### AI Model Setup
+
+1. Download your preferred model, if you don't already have it on your machine, for instance `granite3.2`:
+```bash
+ollama pull granite3.2
+```
+
+  - You can find a list of available models [here](https://ollama.com/library)
+
+
+2. List available models:
+```bash
+ollama list
+```
+
+3. Have `ollama` running (either from application or cli)
+```bash
+ollama serve
+```
+
+### Clone and Setup
 
 1. Clone and set up the working space.
 ```bash
 git clone https://github.com/jjasghar/ai-auto-emailer.git
 cd ai-auto-emailer
 python3.11 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Copy the `config.toml.example` and edit the `config.toml`. NOTE: the `EMAIL_TEMPLATE` is the email that you
-want the LLM to take inspiration from.
+2. Copy the `config.toml.example` and edit the `config.toml` in a text editor of your choice (`nano`, `vim`, `VSCode`, etc).
 ```bash
 cp config.toml.example config.toml
 vim config.toml
 ```
+  - NOTE: the `EMAIL_TEMPLATE` is the email that you want the LLM to take inspiration from.
+  - NOTE: make sure you update the `OLLAMA_AI_MODEL` to the specific model you're using.
 
-3. Edit the `names.csv`
+1. Copy the `names.csv.example` to `names.csv` and edit the list you want to use
 ```bash
 vim names.csv # might I suggest just your name only to start out with.
 ```
 
-4. Run a test run. NOTE: use `DEBUG=True` before `python main.py` to get DEBUG
+1. Run a test run. NOTE: use `DEBUG=True` before `python main.py` to get DEBUG
    output in the `log/main_logging.log`.
 ```bash
-python main.py
+DEBUG=True python main.py
 SMTP password: super_secret_p@ssw0rd!
 >>>> email sent to billy@example.com <<<<<
 >>>> email sent to mark@example.com <<<<<
@@ -44,8 +71,8 @@ SMTP password: super_secret_p@ssw0rd!
 This took 0:01:35.220344 to run
 ```
 
-5. Verify in your inbox
-6. If you like it, change the `names.csv` to the people you want to start emailing.
+1. Verify in your inbox
+2. If you like it, change the `names.csv` to the people you want to start emailing.
 
 ## Using Gmail as your SMTP server
 
