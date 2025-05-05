@@ -20,6 +20,9 @@ Have [ollama][ollama] and python installed.
 ollama pull granite3.2
 ```
 
+  - You can find a list of available models [here](https://ollama.com/library)
+
+
 2. List available models:
 ```bash
 ollama list
@@ -30,7 +33,7 @@ ollama list
 ollama serve
 ```
 
-### Clone and Setup 
+### Clone and Setup
 
 1. Clone and set up the working space.
 ```bash
@@ -41,7 +44,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Copy the `config.toml.example` and edit the `config.toml` in a text editor of your choice (`nano`, `vim`, `VSCode`, etc). 
+2. Copy the `config.toml.example` and edit the `config.toml` in a text editor of your choice (`nano`, `vim`, `VSCode`, etc).
 ```bash
 cp config.toml.example config.toml
 vim config.toml
