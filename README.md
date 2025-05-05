@@ -2,10 +2,13 @@
 
 ## Scope
 
-This is an example helper email to send conference sponsorship emails to prospective sponsors for an event. This can be edited for
-your event easily with some changes around the HTML email and the "template email."
+This is an example helper email to send conference sponsorship emails to prospective sponsors for an event. This can be edited for your event easily with some changes around the HTML email and the "[template email](./templates/email.html.j2)."
 
 This is designed to help community driven events to ask for money from companies, this will **save hours of work** for community volunteers.
+
+NOTE: It will generate a unique email for each email address so that it is a "normal" email. That does mean that it will take awhile (and use local resources) depending on how many email addresses you have.
+
+For reference: 50 messages took 19m:56s on Mac M1 Max with 32GB RAM.
 
 ## Configuration and setup
 
