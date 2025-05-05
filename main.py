@@ -81,7 +81,7 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
             {event_website}. Write an email that convinces me and the
             recipient of this email to want to sponsor this event. The
             recipients name is {i['name']}. The email is from my name which is
-            {your_name}, and my email address and {your_email}, my phone number
+            {your_name}, and my email address is {your_email}, my phone number
             is {your_phone}. Please do not put the Subject at the top of the
             email, or mention any company I work for.""",
         },]
