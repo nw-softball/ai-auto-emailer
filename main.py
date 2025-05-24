@@ -11,6 +11,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from jinja2 import Environment, FileSystemLoader
 from ollama import chat
+from tqdm import tqdm
 import csv
 import logging
 import markdown
@@ -64,7 +65,7 @@ context = ssl.create_default_context()
 with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
     server.login(sender_email, password)
 
-    for i in data_list:
+    for i in tqdm(data_list, desc="Sending emails to..."):
 
         receiver_email = i['email']
 
