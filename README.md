@@ -55,24 +55,27 @@ vim config.toml
   - NOTE: the `EMAIL_TEMPLATE` is the email that you want the LLM to take inspiration from.
   - NOTE: make sure you update the `OLLAMA_AI_MODEL` to the specific model you're using.
 
-1. Copy the `names.csv.example` to `names.csv` and edit the list you want to use
+3. Copy the `names.csv.example` to `names.csv` and edit the list you want to use
 ```bash
 vim names.csv # might I suggest just your name only to start out with.
 ```
 
-1. Run a test run. NOTE: use `DEBUG=True` before `python main.py` to get DEBUG
-   output in the `log/main_logging.log`.
+4. Run a test run. NOTE: use `DEBUG=True` before `python main.py` to get DEBUG output in the `log/main_logging.log`.
 ```bash
 DEBUG=True python main.py
 SMTP password: super_secret_p@ssw0rd!
+Sending emails to...:   0%|                                                                                                                                                                                                                             | 0/3 [00:00<?, ?it/s]
 >>>> email sent to billy@example.com <<<<<
+Sending emails to...:  33%|███████████████████████████████████████████████████████████████████████                                                                                                                                              | 1/3 [00:29<00:58, 29.05s/it]
 >>>> email sent to mark@example.com <<<<<
->>>> email sent to YOUREMAIL@gmail.com <<<<<
+Sending emails to...:  67%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                                       | 2/3 [00:41<00:19, 19.56s/it]
+>>>> email sent to jane@example.com <<<<<
+Sending emails to...: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:55<00:00, 18.51s/it]
 This took 0:01:35.220344 to run
 ```
 
-1. Verify in your inbox
-2. If you like it, change the `names.csv` to the people you want to start emailing.
+6. Verify in your inbox
+7. If you like it, change the `names.csv` to the people you want to start emailing.
 
 ## Using Gmail as your SMTP server
 
