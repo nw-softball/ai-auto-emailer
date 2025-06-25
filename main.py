@@ -49,16 +49,11 @@ with open(config["CSV_FILE"]) as data_file:
     for row in data:
         data_list.append(row)
 
-city_event = config["CITY_EVENT"]
 event_website = config["EMAIL_EVENT_WEBSITE"]
 template_email = config["EMAIL_TEMPLATE"]
-prospectus = config["EMAIL_PROSPECTUS_LINK"]
-date_of_event = config["EMAIL_DATE_OF_EVENT"]
 logo_url = config["EMAIL_LOGO_URL"]
-sponsor_url = config["EMAIL_SPONSOR_URL"]
 
 your_name = config["YOUR_NAME"]
-your_phone = config["YOUR_PHONE"]
 your_email = config["YOUR_EMAIL"]
 
 context = ssl.create_default_context()
@@ -72,19 +67,19 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
         response = chat(model=config["OLLAMA_AI_MODEL"], messages= [
         {
             'role': 'user',
-            'content': f"""You are a professional cold caller for events. You
+            'content': f"""
+            You are a professional cold caller for sponsorships for 50c3. You
             write friendly engaging emails to help drive people to want to
-            sponser your events. You use the following information and template
+            sponsor your events. You use the following information and template
             email to help write out unique and engaging conversational emails:
-            {template_email}. The date for the event is: {date_of_event}, and
-            if you want to link to the prospectus it is located here:
-            {prospectus}. The event website is located at this url:
-            {event_website}. Write an email that convinces me and the
-            recipient of this email to want to sponsor this event. The
-            recipients name is {i['name']}. The email is from my name which is
-            {your_name}, and my email address and {your_email}, my phone number
-            is {your_phone}. Please do not put the Subject at the top of the
-            email, or mention any company I work for.""",
+            {template_email}. The event website is located at this url:
+            {event_website}. Write an email that convinces me and the recipient
+            of this email to want to sponsor this organization. The recipients
+            name is {i['name']}. The email is from my name which is
+            {your_name}, and my email address and {your_email}. Please do not
+            put the Subject at the top of the email, or mention any company I
+            work for. Do not add my phone number or my title.
+            """,
         },]
     )
 
@@ -92,15 +87,13 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
         message["Subject"] = config["EMAIL_SUBJECT"]
         message["From"] = sender_email
         message["To"] = receiver_email
-        message["Reply-To"] = f"{city_event}@devopsdays.org"
+        message["Reply-To"] = f"fof@nwsoftball.org"
 
         raw_response =  response['message']['content']
         text_email = raw_response
 
         markdown_email = markdown.markdown(raw_response)
         html_email = template.render(content=markdown_email,
-                                     sponsor_url=sponsor_url,
-                                     city_event=city_event,
                                      logo_url=logo_url
                                     )
         part1 = MIMEText(text_email, "plain")
