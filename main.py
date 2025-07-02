@@ -18,6 +18,7 @@ import markdown
 import os
 import smtplib, ssl
 import tomllib
+import time
 
 LOGGING_LEVEL=os.environ.get("DEBUG", "INFO")
 
@@ -52,9 +53,11 @@ with open(config["CSV_FILE"]) as data_file:
 event_website = config["EMAIL_EVENT_WEBSITE"]
 template_email = config["EMAIL_TEMPLATE"]
 logo_url = config["EMAIL_LOGO_URL"]
+sponsor_url = config["EMAIL_SPONSOR_URL"]
 
 your_name = config["YOUR_NAME"]
 your_email = config["YOUR_EMAIL"]
+email_date = time.strftime("%Y-%m-%d")
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
@@ -94,7 +97,9 @@ with smtplib.SMTP_SSL(config["SMTP_SERVER"], port, context=context) as server:
 
         markdown_email = markdown.markdown(raw_response)
         html_email = template.render(content=markdown_email,
-                                     logo_url=logo_url
+                                     logo_url=logo_url,
+                                     sponsor_url=sponsor_url,
+                                     email_date=email_date
                                     )
         part1 = MIMEText(text_email, "plain")
         part2 = MIMEText(html_email, "html")
